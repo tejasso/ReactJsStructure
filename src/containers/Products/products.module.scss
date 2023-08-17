@@ -1,0 +1,16 @@
+// containers/ProductsContainer/ProductsContainer.module.scss
+.productsContainer {
+  h1 {
+    color: green;
+    text-align: center;
+  }
+
+  .productList {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      margin: 10px 0;
+    }
+  }
+}
