@@ -1,0 +1,76 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  border-bottom: 2px solid #34495e;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      padding: 10px;
+
+      a {
+        text-decoration: none;
+        color: #ecf0f1;
+        font-weight: 600;
+        font-size: 16px;
+        transition: color 0.3s, border-bottom 0.3s;
+        padding-bottom: 5px;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+          color: #3498db;
+          border-bottom: 2px solid #3498db;
+        }
+      }
+      .active {
+        // Adding active class styles
+        color: #3498db;
+        border-bottom: 2px solid #3498db;
+      }
+    }
+
+    li:not(:last-child) {
+      margin-right: 20px; // Adjust space between menu items
+    }
+  }
+
+  .userProfile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0f0f0; // Placeholder for profile picture
+    background-image: url("https://cdn.vectorstock.com/i/preview-1x/45/14/user-vector-3754514.webp"); // Path to user's image
+    background-size: cover;
+    border: 2px solid #3498db;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    ul {
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 10px;
+
+      li {
+        padding: 10px;
+        margin-right: 10px;
+      }
+    }
+
+    .userProfile {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+    }
+  }
+}

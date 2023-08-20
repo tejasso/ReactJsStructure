@@ -1,7 +1,128 @@
-// containers/DashboardContainer/DashboardContainer.module.scss
+// .dashboard {
+//   display: flex;
+//   justify-content: center;
+//   background-color: #f9f9f9;
+// }
+
+// .flexContainer {
+//   display: flex;
+//   align-items: center;
+//   gap: 20px; // Creates even spacing between the elements
+//   padding: 20px;
+//   background-color: #ffffff; // Background color for the inner container
+//   border-radius: 8px;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//   width: 80%; // Width of the inner container, you can adjust it
+//   max-width: 800px; // Maximum width of the inner container
+// }
+
+// .flexItem {
+//   flex: 1; // Equal weight to all items
+// }
+
+// .searchInput {
+//   flex: 2; // Makes the search input larger
+// }
+
+// .resultsTable {
+//   width: 100%;
+//   border-collapse: collapse;
+//   margin-top: 20px;
+//   th,
+//   td {
+//     padding: 8px 12px;
+//     border: 1px solid #e0e0e0;
+//     text-align: left;
+//   }
+//   th {
+//     background-color: #f5f5f5;
+//     color: #333;
+//     font-weight: bold;
+//   }
+//   tr:nth-child(odd) {
+//     background-color: #f9f9f9;
+//   }
+// }
+
 .dashboard {
-  // Styles for your DashboardContainer component go here
-  h1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9; // Background color for the entire container
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 800px;
+  gap: 20px; // Creates even spacing between the elements
+  padding: 20px;
+  margin-bottom: 20px; // Space between the controls and the table
+  background-color: #ffffff; // Background color for the controls container
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flexItem {
+  flex: 1; // Equal weight to all items
+}
+
+.searchInput {
+  flex: 2; // Makes the search input larger
+}
+
+.searchButton {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+
+.resultsTable {
+  width: 80%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin-top: 20px;
+  th,
+  td {
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+  }
+  th {
+    background-color: #f5f5f5;
     color: #333;
+    font-weight: bold;
+  }
+  tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+}
+
+// Object
+
+.resultsObject {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  width: 800px;
+
+  p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
   }
 }
