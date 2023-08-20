@@ -1,50 +1,71 @@
 import React, { useState } from "react";
-import { Select, MenuItem, Input, Button } from "@mui/material";
+import {
+  Select,
+  MenuItem,
+  Input,
+  Button,
+  InputLabel,
+  FormControl,
+} from "@mui/material";
+
 import styles from "./dashbord.module.scss";
 
 const Dashboard = () => {
-  const [resultType, setResultType] = useState("array"); // To store the type of result
-  const [value, setValue] = useState(1);
-  const [searchResults, setSearchResults] = useState([
-    { id: 1, name: "item1" },
-    { id: 2, name: "item2" },
-    { id: 3, name: "item3" },
-  ]);
+  const [resultType, setResultType] = useState(""); // To store the type of result
+  const [type, setType] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setType(event.target.value);
   };
 
   // Example function to simulate search
   const handleSearch = () => {
-    if (value === 1) {
-      setSearchResults([
-        { id: 1, name: "item1" },
-        { id: 2, name: "item2" },
-      ]);
-      setResultType("array");
-    } else {
-      setSearchResults({ id: 3, name: "item3" });
-      setResultType("object");
+    if (type !== "") {
+      if (type === 1) {
+        setSearchResults([
+          { id: 1, name: "item1" },
+          { id: 2, name: "item2" },
+          { id: 3, name: "item3" },
+        ]);
+        setResultType("array");
+      } else {
+        setSearchResults({ id: 3, name: "item3" });
+        setResultType("object");
+      }
     }
   };
+
+  const searchBoxPlaceHolder = React.useMemo(() => {
+    switch (type) {
+      case 1:
+        return "Search by Application Number";
+      case 2:
+        return "Search by Message ID";
+
+      default:
+        return "";
+    }
+  }, [type]);
 
   return (
     <div className={styles.dashboard}>
       <div className={styles.flexContainer}>
-        <Select
-          value={value}
-          onChange={handleChange}
-          variant="outlined"
-          className={styles.flexItem}
-        >
-          <MenuItem value={1}>Application</MenuItem>
-          <MenuItem value={2}>Message</MenuItem>
-        </Select>
+        <FormControl sx={{ m: 1, minWidth: 150 }}>
+          <InputLabel id="demo-simple-select-label">Type</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            value={type}
+            label="Type"
+            onChange={handleChange}
+            className={styles.flexItem}
+          >
+            <MenuItem value={1}>Application</MenuItem>
+            <MenuItem value={2}>Message</MenuItem>
+          </Select>
+        </FormControl>
         <Input
-          placeholder={`Search by ${
-            value === 1 ? "Application Number" : "Message ID"
-          }`}
+          placeholder={searchBoxPlaceHolder}
           className={`${styles.flexItem} ${styles.searchInput}`}
           variant="outlined"
         />
